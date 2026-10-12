@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Rocket, Bell, ChevronDown, User, LogOut, Settings, Award } from 'lucide-react';
 import EduSkillsLogo from './EduSkillsLogo';
 
-export default function Navbar({ onOpenAssess2Me, onOpenNotifications }) {
+export default function Navbar({ onOpenAssess2Me, onOpenNotifications, onProfileClick }) {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [showNotificationMenu, setShowNotificationMenu] = useState(false);
 
@@ -86,11 +86,10 @@ export default function Navbar({ onOpenAssess2Me, onOpenNotifications }) {
         {/* Profile Avatar HA */}
         <div className="relative">
           <button
-            onClick={() => {
-              setShowProfileMenu(!showProfileMenu);
-              setShowNotificationMenu(false);
-            }}
-            className="w-9 h-9 rounded-full bg-[#f97316] text-white font-semibold text-sm flex items-center justify-center hover:ring-2 hover:ring-orange-200 transition-all shadow-sm"
+            onClick={onProfileClick}
+            aria-label="Profile"
+            title="Profile"
+            className="w-9 h-9 rounded-full bg-[#f97316] text-white font-semibold text-sm flex items-center justify-center hover:ring-2 hover:ring-orange-200 transition-all shadow-sm cursor-pointer"
           >
             HA
           </button>
@@ -105,7 +104,10 @@ export default function Navbar({ onOpenAssess2Me, onOpenNotifications }) {
               </div>
 
               <div className="py-1">
-                <button className="w-full text-left px-4 py-2 text-xs text-gray-700 hover:bg-gray-50 flex items-center gap-2.5">
+                <button
+                  onClick={onProfileClick}
+                  className="w-full text-left px-4 py-2 text-xs text-gray-700 hover:bg-gray-50 flex items-center gap-2.5 cursor-pointer"
+                >
                   <User className="w-4 h-4 text-gray-400" />
                   <span>My Profile</span>
                 </button>

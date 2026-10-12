@@ -140,13 +140,18 @@ export default function App() {
     setIsEmptyPage(true);
   };
 
+  const handleProfileClick = () => {
+    window.history.pushState({ page: 'empty' }, '');
+    setIsEmptyPage(true);
+  };
+
   const handleOpenPreviewModal = (row, type = 'Final') => {
     setSelectedRowData(row);
     setSelectedCertType(type);
     setIsPreviewModalOpen(true);
   };
 
-  // If empty page requested after clicking download
+  // If empty page requested after clicking download or profile
   if (isEmptyPage) {
     return (
       <div
@@ -169,6 +174,7 @@ export default function App() {
       <Navbar
         onOpenAssess2Me={() => setIsAssess2MeOpen(true)}
         onOpenNotifications={() => {}}
+        onProfileClick={handleProfileClick}
       />
 
       <div className="flex flex-1">
