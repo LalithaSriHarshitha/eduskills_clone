@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduSkills Certificate Verification Portal - 4d5abc7bf8547de3e2e4</title>
+  <link rel="icon" type="image/png" href="assets/verified-badge.png" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f7f9fa;
+      color: #333333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Top Official Banner Header */
+    .header-container {
+      width: 100%;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header-banner {
+      width: 100%;
+      max-width: 1100px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* Main Container */
+    .main-content {
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px;
+    }
+
+    /* The Blue Verification Card */
+    .verification-card {
+      background-color: #408ac2;
+      color: #ffffff;
+      width: 100%;
+      max-width: 540px;
+      padding: 32px 36px;
+      border-radius: 4px;
+      box-shadow: 0 4px 14px rgba(64, 138, 194, 0.25), 0 2px 6px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    /* Verified Badge Container */
+    .badge-box {
+      width: 130px;
+      height: 105px;
+      background-color: #ffffff;
+      margin: 0 auto 20px auto;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .badge-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Card Headline */
+    .card-title {
+      text-align: center;
+      font-size: 16.5px;
+      font-weight: 500;
+      line-height: 1.4;
+      margin-bottom: 24px;
+      letter-spacing: 0.2px;
+    }
+
+    /* Details List */
+    .details-list {
+      margin-bottom: 24px;
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .detail-row {
+      display: flex;
+      margin-bottom: 2px;
+    }
+
+    .detail-label {
+      font-weight: 400;
+      opacity: 0.95;
+      white-space: nowrap;
+    }
+
+    .detail-value {
+      font-weight: 500;
+      margin-left: 6px;
+      word-break: break-word;
+    }
+
+    /* Grade Details Table Box */
+    .grade-box {
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      border-radius: 2px;
+      padding: 14px 16px;
+      font-size: 12px;
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    .grade-box-title {
+      font-size: 12.5px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      letter-spacing: 0.3px;
+    }
+
+    .grade-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 20px;
+      row-gap: 5px;
+      font-size: 11.5px;
+      line-height: 1.5;
+      opacity: 0.95;
+    }
+
+    /* Action Buttons Below Card */
+    .actions-container {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: #1d4ed8;
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(29, 78, 216, 0.25);
+    }
+
+    .btn-primary:hover {
+      background-color: #1e40af;
+      box-shadow: 0 4px 10px rgba(29, 78, 216, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: #16a34a;
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(22, 163, 74, 0.25);
+    }
+
+    .btn-secondary:hover {
+      background-color: #15803d;
+      box-shadow: 0 4px 10px rgba(22, 163, 74, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      padding: 18px 16px;
+      text-align: center;
+      font-size: 12px;
+      color: #64748b;
+      border-top: 1px solid #e2e8f0;
+      background-color: #ffffff;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background-color: #ffffff;
+      }
+      .actions-container, footer {
+        display: none !important;
+      }
+      .verification-card {
+        box-shadow: none !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 600px) {
+      .main-content {
+        padding: 20px 12px;
+      }
+      .verification-card {
+        padding: 24px 20px;
+      }
+      .card-title {
+        font-size: 15px;
+      }
+      .details-list {
+        font-size: 13px;
+      }
+      .grade-grid {
+        grid-template-columns: 1fr;
+        row-gap: 3px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top AICTE & EduSkills Header Banner -->
+  <header class="header-container">
+    <img
+      src="assets/header-banner.png"
+      alt="AICTE & EduSkills - Virtual Internship Opportunities for Students"
+      class="header-banner"
+    />
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <div class="verification-card">
+      <!-- Centered White Rosette Verified Badge Box -->
+      <div class="badge-box">
+        <img
+          src="assets/verified-badge.png"
+          alt="AICTE EduSkills Verified Seal"
+          class="badge-img"
+        />
+      </div>
+
+      <!-- Verification Success Message -->
+      <h1 class="card-title">
+        AICTE Internship Certificate is successfully verified
+      </h1>
+
+      <!-- Detailed Verification Metadata (from original Harsha Priya Putta certificate) -->
+      <div class="details-list">
+        <div class="detail-row">
+          <span class="detail-label">Certificate ID :</span>
+          <span class="detail-value">4d5abc7bf8547de3e2e4</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Issued On :</span>
+          <span class="detail-value">28 Jun 2026</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Issued To :</span>
+          <span class="detail-value">HARSHA PRIYA PUTTA</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Institute :</span>
+          <span class="detail-value">R.V.R. & J.C. College of Engineering</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Internship :</span>
+          <span class="detail-value">CELONIS BUSINESS ANALYST VIRTUAL INTERNSHIP (APR - JUN 2026)</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Grade :</span>
+          <span class="detail-value">B</span>
+        </div>
+      </div>
+
+      <!-- Grade Breakdown Outline Box -->
+      <div class="grade-box">
+        <div class="grade-box-title">Grade Details</div>
+        <div class="grade-grid">
+          <div>O- Outstanding : 90-100</div>
+          <div>C- Fair : 50-59</div>
+          <div>E- Excellent : 80-89</div>
+          <div>D- Avarage : 40-49</div>
+          <div>A- Very Good : 70-79</div>
+          <div>P- Pass : 30-39</div>
+          <div>B- Good : 60-69</div>
+          <div>F- Fail : Bellow 30</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Official PDF Action Links -->
+    <div class="actions-container">
+      <a
+        href="assets/certificate.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary"
+      >
+        <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        <span>View Official Certificate PDF</span>
+      </a>
+
+      <a
+        href="assets/certificate.pdf"
+        download="EduSkills_Celonis_Harsha_Priya_Putta_Certificate.pdf"
+        class="btn btn-secondary"
+      >
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <span>Download Certificate</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- Official Footer -->
+  <footer>
+    © 2026 EduSkills Foundation &amp; AICTE. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
